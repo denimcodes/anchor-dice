@@ -10,6 +10,7 @@ use crate::{instruction, Bet};
 pub struct PlaceBet<'info> {
     #[account(mut)]
     pub player: Signer<'info>,
+    /// CHECK: it's safe because it's checked later
     pub house: UncheckedAccount<'info>,
     #[account(
         mut,

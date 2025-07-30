@@ -11,6 +11,7 @@ use crate::{error::DiceError, Bet, HOUSE_EDGE};
 pub struct ResolveBet<'info> {
     #[account(mut)]
     pub house: Signer<'info>,
+    /// CHECK: it's safe because it's checked later
     #[account(mut)]
     pub player: UncheckedAccount<'info>,
     #[account(
@@ -26,6 +27,7 @@ pub struct ResolveBet<'info> {
         bump = bet.bump
     )]
     pub bet: Account<'info, Bet>,
+    /// CHECK: it's safe because it's checked later
     pub instruction_sysvar: AccountInfo<'info>,
 
     pub system_program: Program<'info, System>,
